@@ -26,6 +26,7 @@ signupButton.addEventListener("click",(e) =>{
     .createUserWithEmailAndPassword(email.value,Password.value)
     .then((userCredential) => {
         location.reload();
+         alert("user signed up successfully")
         // Signed in
         var user = userCredential.user;
         console.log("user,user.mail");
@@ -37,6 +38,7 @@ signupButton.addEventListener("click",(e) =>{
         var errorMessage = error.message;
         console.log("error code",errorCode);
         console.log("error message",errorMessage);
+        alert(errorMessage)
     });
 });
 
@@ -55,17 +57,16 @@ signInButton.addEventListener("click",(e) =>{
     auth 
     .signInWithEmailAndPassword(email.value,Password.value)
     .then((userCredential) => {
-        location.reload();
-        // Signed in
         var user = userCredential.user;
-        console.log("user,user.mail");
-        window.location = "index.html";
+        console.log("user", user.email);
+        window.location = "index1.html";
+       
     })
     .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log("error code",errorCode);
-        console.log("error message",errorMessage);
+        alert("Wrong Email Address or Passord")
+        
     });
 });
 //This method gets invoked in the UI when there are changes in the authentication state:
